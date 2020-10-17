@@ -18,11 +18,14 @@ class Firebase {
   }
 
   doCreateUserWithEmailAndPassword = (email, pw) => {
-    this.auth.createUserWithEmailAndPassword(email, pw);
+    let { auth } = this;
+    console.log({email, pw, auth});
+
+    return this.auth.createUserWithEmailAndPassword(email, pw);
   }
 
   doSignInWithEmailAndPassword = (email, pw) => {
-    this.auth.signInWithEmailAndPassword(email, pw);
+    return this.auth.signInWithEmailAndPassword(email, pw);
   }
 
   doSignOut = () => this.auth.signOut();
