@@ -99,3 +99,5 @@ const SignUpLink = () => (
 const SignUpForm = withRouter(withFirebase(SignUpFormBase));
 
 export default SignUpPage;
+
+export { SignUpLink };
