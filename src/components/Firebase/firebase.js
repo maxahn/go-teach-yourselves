@@ -1,6 +1,7 @@
 import app from 'firebase/app';
 import 'firebase/auth';
-import 'firebase/firestore';
+// import 'firebase/firestore';
+import 'firebase/database';
 
 const config = {
   apiKey: process.env.REACT_APP_API_KEY,
@@ -14,9 +15,9 @@ const config = {
 class Firebase {
   constructor() {
     app.initializeApp(config);
-    this.fieldValue = app.firestore.FieldValue;
+    // this.fieldValue = app.firestore.FieldValue;
     this.auth = app.auth();
-    this.db = app.firestore();
+    this.db = app.database();
   }
 
   doCreateUserWithEmailAndPassword = (email, pw) => {
@@ -32,26 +33,31 @@ class Firebase {
 
   // API
 
-  course = cid => this.db.doc(`classes/${cid}`);
-  courses = () => this.db.collection('classes');
+  course = cid => this.db.ref(`courses/${cid}`);
+  courses = () => this.db.ref(`courses`);
 
-  getCourses = () => {
-    return this.db.collection("classes").get()
-    .then(function(querySnapshot) {
-      const classArray = [];
-      querySnapshot.forEach(function(doc) {
-          classArray.push({
-            id: doc.id,
-            ...doc.data()
-          });
-          console.log(doc.id, " => ", doc.data());
-      });
-      return classArray;
-    })
-    .catch(function(error) {
-        console.log("Error getting documents: ", error);
-    });
-  }
+  questions = () => this.db.ref(`Questions`);
+  // FIREBASE
+  // course = cid => this.db.doc(`classes/${cid}`);
+  // courses = () => this.db.collection('classes');
+
+  // getCourses = () => {
+  //   return this.db.collection("classes").get()
+  //   .then(function(querySnapshot) {
+  //     const classArray = [];
+  //     querySnapshot.forEach(function(doc) {
+  //         classArray.push({
+  //           id: doc.id,
+  //           ...doc.data()
+  //         });
+  //         console.log(doc.id, " => ", doc.data());
+  //     });
+  //     return classArray;
+  //   })
+  //   .catch(function(error) {
+  //       console.log("Error getting documents: ", error);
+  //   });
+  // }
 }
 
 export default Firebase;

@@ -15,6 +15,7 @@ import SignInPage from '../SignIn';
 import HomePage from '../Home';
 import AccountPage from '../Account';
 import CoursePage from '../Pages/CoursePage';
+import ModulePage from '../Module';
 
 import * as ROUTES from '../../constants/routes';
 
@@ -29,6 +30,7 @@ const App = (props) => (
       <Route exact path={ROUTES.HOME} component={HomePage} />
       <Route exact path={ROUTES.COURSES} component={CoursePage} />
       <Route exact path={ROUTES.ACCOUNT} component={AccountPage} />
+      <Route exact path={ROUTES.MODULE_DEMO} component={ModulePage} />
     </div>
   </Router>
 );
