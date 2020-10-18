@@ -90,8 +90,14 @@ class ModulePage extends Component {
           <ul>
             <li>
               <h5>Nara - nara@fakeemail.com</h5>
+            </li>
+            <li>
               <h5>Iman - iman@fakeemail.com</h5>
+            </li>
+            <li>
               <h5>Pbj - peanutbutterjelly@fakeemail.com</h5>
+            </li>
+            <li>
               <h5>Max - max@fakeemail.com</h5>
             </li>
           </ul>
